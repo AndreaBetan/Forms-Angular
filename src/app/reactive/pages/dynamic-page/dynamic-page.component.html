@@ -45,6 +45,7 @@
             <div class="mb-1" *ngFor="let favorite of favoriteGames.controls; let i = index">
 
                 <div class="input-group">
+                  <!-- Enlaza basado en la posicion indice -->
                     <input [formControlName]="i"
                       class="form-control">
 

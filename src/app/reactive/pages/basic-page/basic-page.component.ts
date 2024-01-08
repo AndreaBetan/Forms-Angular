@@ -45,6 +45,7 @@ export class BasicPageComponent implements OnInit {
     // Si el error es nulo regresa un objeto vacio
     const errors = this.myForm.controls[field].errors || {};
 
+    // objetc.key retorna un array con todos los errores almacenados en errors
     for (const key of Object.keys(errors) ) {
       switch( key ) {
         case 'required':

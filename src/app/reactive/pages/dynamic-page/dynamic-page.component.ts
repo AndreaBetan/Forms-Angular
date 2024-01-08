@@ -58,15 +58,16 @@ export class DynamicPageComponent {
   }
 
   onAddToFavorites():void {
-
+    // Si el nuevo favorito es invalido no regresa nada
     if ( this.newFavorite.invalid ) return;
+    // De lo contrario lo almacena en newGame
     const newGame = this.newFavorite.value;
 
-    // this.favoriteGames.push(  new FormControl( newGame, Validators.required ) );
+    // Agrega el newGame al array de favs
     this.favoriteGames.push(
       this.fb.control( newGame, Validators.required )
     );
-
+    // Reestablece el campo a vacio
     this.newFavorite.reset();
 
   }
@@ -78,13 +79,16 @@ export class DynamicPageComponent {
 
   onSubmit():void {
 
+    // Si el formulario es invalido marca todo lo que he tocado y retorna
     if ( this.myForm.invalid ) {
       this.myForm.markAllAsTouched();
       return;
     }
 
     console.log(this.myForm.value);
+    // Reestablece el array favoriteGames a vacio
     (this.myForm.controls['favoriteGames'] as FormArray ) = this.fb.array([]);
+    // Limpia el formulario
     this.myForm.reset();
 
   }
